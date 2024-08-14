@@ -18,3 +18,10 @@ generates XML `.keyx` files for KeePass and KeePassXC. Quoting from [here](https
     </Key>
 </KeyFile>
 ```
+
+What it goes:
+
+- generate 32 bytes of random data
+- create a SHA256 hash of that
+- add the first four bytes of the hash to `Data Hash`
+- append the prettyfied 32 hexlified bytes to the XML
