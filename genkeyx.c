@@ -40,8 +40,10 @@ bool keyx(struct kx *kx)
 	kx->line1 = calloc(SIZE*2, sizeof(char));
 	kx->line2 = calloc(SIZE*2, sizeof(char));
 
-	if (!kx->hash4 || !kx->line1 || !kx->line2)
+	if (!kx->hash4 || !kx->line1 || !kx->line2) {
+		fprintf(stderr, "ENOMEM\n");
 		return false;
+	}
 
 	if (RAND_bytes(randbytes, SIZE) != 1) {
 		fprintf(stderr, "Can't get RAND_bytes\n");
