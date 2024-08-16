@@ -8,7 +8,7 @@ genkeyx - generate XML .keyx files for KeePass(XC)
 
 # SYNOPSIS
 
-genkeyx \[-o file\]
+genkeyx \[-o *file*\] \[-v\]
 
 # DESCRIPTION
 
@@ -16,8 +16,15 @@ genkeyx \[-o file\]
 formats these values as an XML document ready for use in KeePass and/or
 KeePassXC.
 
-If `-o` is specified, *genkeyx* writes the output into the specified
-file instead of to *stdout*.
+# OPTIONS
+
+*genkeyx* understands the following global options:
+
+-o  
+Write the XML document into the specified file instead of to *stdout*.
+
+-v  
+Show version and exit.
 
 # EXAMPLES
 

@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <openssl/sha.h>
 #include <openssl/rand.h>
+#include "version.h"
 
 /*
  * genkeyx (C)2024 by Jan-Piet Mens <jp@mens.de>
@@ -83,7 +84,7 @@ int main(int argc, char **argv)
 	FILE *fp = stdout;
 	struct kx kx;
 
-	while ((ch = getopt(argc, argv, "o:")) != EOF) {
+	while ((ch = getopt(argc, argv, "o:v")) != EOF) {
 		switch (ch) {
 			case 'o':
 				if ((fp = fopen(optarg, "w")) == NULL) {
@@ -91,8 +92,11 @@ int main(int argc, char **argv)
 					return 1;
 				}
 				break;
+			case 'v':
+				printf("%s version %s\n", *argv, VERSION);
+				return 0;
 			default:
-				fprintf(stderr, "Usage: %s [-o file]\n", *argv);
+				fprintf(stderr, "Usage: %s [-o file] [-v]\n", *argv);
 				return 1;
 		}
 	}

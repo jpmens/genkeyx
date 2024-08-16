@@ -6,13 +6,22 @@ genkeyx - generate XML .keyx files for KeePass(XC)
 
 # SYNOPSIS
 
-genkeyx [-o file]
+genkeyx [-o _file_] [-v]
 
 # DESCRIPTION
 
 *genkeyx* creates a 32-byte random value and a SHA256 hash of it and formats these values as an XML document ready for use in KeePass and/or KeePassXC.
 
-If `-o` is specified, *genkeyx* writes the output into the specified file instead of to _stdout_.
+# OPTIONS
+
+*genkeyx* understands the following global options:
+
+-o
+:   Write the XML document into the specified file instead of to _stdout_.
+
+-v
+:   Show version and exit.
+
 
 # EXAMPLES
 

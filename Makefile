@@ -11,7 +11,7 @@ all: genkeyx
 
 doc: genkeyx.1 genkeyx.md
 
-genkeyx: genkeyx.c
+genkeyx: genkeyx.c version.h
 	$(CC) $(CFLAGS) -o genkeyx genkeyx.c $(LDFLAGS)
 
 clean:
