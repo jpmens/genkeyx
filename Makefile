@@ -9,7 +9,7 @@ LDFLAGS=-L $(OPENSSL)/lib -lcrypto
 
 all: genkeyx
 
-doc: genkeyx.1 genkeyx.md
+doc: genkeyx.1 README.md
 
 genkeyx: genkeyx.c version.h
 	$(CC) $(CFLAGS) -o genkeyx genkeyx.c $(LDFLAGS)
@@ -23,4 +23,6 @@ genkeyx.1: genkeyx.pandoc
 	$(PANDOC) -s -w man -f markdown -o $@ $<
 
 genkeyx.md: genkeyx.pandoc
-	$(PANDOC) -s -w gfm -f markdown-smart -o $@ $<
+
+README.md: genkeyx.pandoc
+	$(PANDOC) -s -w gfm -f markdown-smart $< | awk 'NR > 4 { print }' > $@
